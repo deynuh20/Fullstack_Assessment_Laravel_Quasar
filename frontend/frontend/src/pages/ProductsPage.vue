@@ -52,7 +52,6 @@
       </template>
     </q-table>
 
-    <!-- Add/Edit Dialog -->
     <q-dialog v-model="showDialog">
       <q-card>
         <q-card-section>

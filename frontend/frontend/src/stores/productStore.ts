@@ -20,19 +20,15 @@ export const useProductStore = defineStore('products', {
     },
 
     async addProduct(product: Omit<Product, 'product_id'>) {
-      const res = await api.post('/products', product);
-      this.products.push(res.data);
+      await api.post('/products', product);
     },
 
     async updateProduct(id: string, product: Partial<Product>) {
-      const res = await api.put(`/products/${id}`, product);
-      const idx = this.products.findIndex(p => p.product_id === id);
-      if (idx !== -1) this.products[idx] = res.data;
+      await api.put(`/products/${id}`, product);
     },
 
     async deleteProduct(id: string) {
       await api.delete(`/products/${id}`);
-      this.products = this.products.filter(p => p.product_id !== id);
     }
   }
 });

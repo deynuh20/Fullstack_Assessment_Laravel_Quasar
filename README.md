@@ -29,23 +29,23 @@ It demonstrates:
 ```bash
 git clone https://github.com/your-username/technical_assessment.git
 cd technical_assessment
----
+
 ### 2. Backend (Laravel)
-```bash
 cd backend
 composer install
 cp .env.example .env
+php artisan key:generate
 
 Configure .env
 
 Update with your PostgreSQL credentials:
 
 DB_CONNECTION=pgsql
-DB_HOST=db.mjiclqxwzrmkmsrepbjv.supabase.co
+DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=products_db
-DB_USERNAME=auth_user
-DB_PASSWORD=user_123
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 
 # Allow frontend access
 CORS_ALLOWED_ORIGINS=http://localhost:9000
@@ -53,8 +53,9 @@ CORS_ALLOWED_ORIGINS=http://localhost:9000
 Run Migrations
 php artisan migrate
 
-Run the server
+Start the Backend Server
 php artisan serve
+
 
 Backend API will be available at:
 👉 http://127.0.0.1:8000/api/products
@@ -69,10 +70,12 @@ Create a .env file in frontend/:
 
 VITE_API_URL=http://127.0.0.1:8000/api
 
+
 The app uses axios to connect to this URL.
 
 Run the Frontend
 quasar dev
+
 
 Frontend will run at:
 👉 http://localhost:9000
